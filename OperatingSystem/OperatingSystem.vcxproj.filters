@@ -36,6 +36,12 @@
     <ClInclude Include="ProcessTable.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MemoryManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="B_memory_exe.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SystemData.cpp">
@@ -60,6 +66,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="A_exe.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="B_memory_exe.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -158,7 +158,7 @@ int A_exe::main(const char* args)
 {
 	s_flag = true;
 
-	ReadFile("MYFILE.txt");
+	ReadFile("Resources/MYFILE.txt");
 
 	using std::thread;
 	thread p_get(s_get), p_copy(s_copy), p_put(s_put), p_display(s_display);

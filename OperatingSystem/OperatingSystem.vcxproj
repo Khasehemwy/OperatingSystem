@@ -141,7 +141,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="A_exe.h" />
+    <ClInclude Include="B_memory_exe.h" />
     <ClInclude Include="Includes.h" />
+    <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="OS.h" />
     <ClInclude Include="PCB.h" />
     <ClInclude Include="ProcessQueue.h" />
@@ -152,12 +154,14 @@
     <ClCompile Include="A_exe.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="B_memory_exe.cpp" />
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="main_thread_school_example.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="OS.cpp" />
     <ClCompile Include="PCB.cpp" />
     <ClCompile Include="ProcessQueue.cpp" />

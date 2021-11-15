@@ -17,6 +17,7 @@ public:
     int state;
     int priority;
 
-    PCB(string name, int need_time);
-    PCB(string name, int need_time, std::thread* process);
+    int need_memory;
+
+    PCB(string name, int need_time, std::thread* process, int need_memory);
 };
