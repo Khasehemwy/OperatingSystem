@@ -154,9 +154,10 @@ int OS::CheckProcess()
 int OS::ShowHelp()
 {
 	printf("\n **** help document ****");
-	printf("\n * fork : Create new process. (fork name need_time need_memory)");
+	printf("\n * fork : create new process. (fork name need_time need_memory)");
 	printf("\n * poweroff : poweroff OS.");
 	printf("\n * ps : check processes.");
+	printf("\n * free : check memory allocation.");
 	printf("\n\n");
 
 	return 0;
