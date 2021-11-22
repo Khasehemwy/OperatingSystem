@@ -18,6 +18,10 @@ class OS;
 
 
 inline float rand_lr(float l, float r) {
-	srand(time(NULL));
+	static bool first = true;
+	if (first) {
+		first = false;
+		srand(time(NULL));
+	}
 	return  l + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (r - l)));
 }
