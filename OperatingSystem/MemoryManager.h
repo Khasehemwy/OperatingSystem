@@ -13,6 +13,7 @@ private:
 		unsigned int address;
 		unsigned int size;
 	};
+	std::list<MemoryBlock> original_memory_blocks;
 	std::list<MemoryBlock> memory_blocks;
 
 	unsigned int max_block_num = 10;
@@ -25,7 +26,7 @@ private:
 	};
 	std::vector<RequestBlock> request_blocks;
 
-	AllocateStrategy strategy = AllocateStrategy::FirstFit;
+	AllocateStrategy strategy = AllocateStrategy::BestFit;
 
 	int RechainBlocks();
 	int FirstAllocate();

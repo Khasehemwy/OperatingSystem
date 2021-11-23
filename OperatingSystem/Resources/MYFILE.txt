@@ -1,2 +1,2 @@
-abcdef
-abcc
+ab
+c

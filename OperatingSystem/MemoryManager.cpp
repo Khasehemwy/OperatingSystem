@@ -49,6 +49,7 @@ int MemoryManager::BestAllocate()
 		for (auto& block : memory_blocks) {
 			if (block.size >= request_block->size) {
 				if (best_block_size == -1 || block.size < best_block_size) {
+					best_block_size = block.size;
 					best_block = &block;
 				}
 			}
@@ -79,10 +80,11 @@ int MemoryManager::WorstAllocate()
 		if (request_block->allocated) { continue; }
 		bool is_allocated = false;
 		MemoryBlock* worst_block = nullptr;
-		int worst_block_size = -1;
+		int worst_block_size = 0;
 		for (auto& block : memory_blocks) {
 			if (block.size >= request_block->size) {
 				if (block.size > worst_block_size) {
+					worst_block_size = block.size;
 					worst_block = &block;
 				}
 			}
@@ -116,6 +118,7 @@ int MemoryManager::Init()
 		int size = rand_lr(1, max_block_size);
 		MemoryBlock memory_block = { address,size };
 		memory_blocks.push_back(memory_block);
+		original_memory_blocks.push_back(memory_block);
 		address += size;
 	}
 
@@ -146,6 +149,9 @@ int MemoryManager::ShowStatus()
 
 int MemoryManager::ReAllocate(AllocateStrategy strategy)
 {
+	for (auto& block : request_blocks) { block.allocated = false; }
+	memory_blocks = original_memory_blocks;
+
 	this->strategy = strategy;
 	if (strategy == AllocateStrategy::FirstFit) {
 		return this->FirstAllocate();
@@ -177,9 +183,10 @@ int MemoryManager::RequestPage(int request_page_id)
 	}
 	else {
 		auto it = vitual_memory.begin();
-		vitual_memory.push_back(Page(request_page_id));
 		printf("[Interrupt] Transfer out %d page, transfer in %d page\n", it->id, request_page_id);
 		printf("[中断] 调出第 %d 页, 调入第 %d 页\n", it->id, request_page_id);
+		vitual_memory.erase(it);
+		vitual_memory.push_back(Page(request_page_id));
 	}
 
 	return 0;
