@@ -6,6 +6,9 @@ int OS::Init()
 
 	PCB::process_map["a.exe"] = A_exe::main;
 	PCB::process_map["b.exe"] = B_memory_exe::main;
+	PCB::process_map["c.exe"] = B_memory_exe::main;
+	PCB::process_map["d.exe"] = B_memory_exe::main;
+	PCB::process_map["e.exe"] = B_memory_exe::main;
 
 	return 0;
 }
@@ -143,9 +146,11 @@ int OS::CheckProcess()
 		printf("\n **** waiting processes are:"); /*显示当前就绪进程*/
 		printf("\n qname \t state \t super \t ndtime \t runtime \n");
 		for (int i = 0; i < process_queue->process_queue.size(); i++) {
-			if (cur_process && process_queue->process_queue[i]->name != cur_process->name) {
-				DisplayProcess(process_queue->process_queue[i]);
+			if (cur_process && process_queue->process_queue[i]->name == cur_process->name
+				&& process_queue->process_queue[i]->state == PCB::STATUS::Run) {
+				continue;
 			}
+			DisplayProcess(process_queue->process_queue[i]);
 		}
 	}
 	return 0;

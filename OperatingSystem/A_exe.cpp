@@ -63,7 +63,7 @@ void A_exe::s_get()//将input放入buffer_s
 			PrintInfo();
 			printf("|-----------------------------S_GET--------------------------|\n");
 			printf("\n\n\n\n");
-			std::this_thread::sleep_for(std::chrono::seconds(3));
+			std::this_thread::sleep_for(std::chrono::seconds(4));
 		}
 
 		lock.unlock();
@@ -95,7 +95,7 @@ void A_exe::s_copy()//将buffer_s放入buffer_t
 				PrintInfo();
 				printf("|-----------------------------S_COPY-------------------------|\n");
 				printf("\n\n\n\n");
-				std::this_thread::sleep_for(std::chrono::seconds(3));
+				std::this_thread::sleep_for(std::chrono::seconds(4));
 			}
 		}
 
@@ -129,7 +129,7 @@ void A_exe::s_put()//将buffer_t放入output
 			buffer_t = NULL;
 			s_put_flag = true;
 
-			std::this_thread::sleep_for(std::chrono::seconds(3));
+			std::this_thread::sleep_for(std::chrono::seconds(4));
 		}
 
 		lock.unlock();
@@ -147,7 +147,7 @@ void A_exe::s_display()
 			printf("|----------------------------Display-------------------------|\n");
 			printf("\n\n\n\n");
 			s_put_flag = false;
-			std::this_thread::sleep_for(std::chrono::seconds(3));
+			std::this_thread::sleep_for(std::chrono::seconds(4));
 		}
 
 		lock.unlock();
